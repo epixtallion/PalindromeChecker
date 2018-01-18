@@ -11,12 +11,14 @@ public void setup()
     else
     {
       println(lines[i] + " is NOT a palidrome.");
+      println(reverse(noSpaces(lines[i])));
     }
   }
 }
 public boolean palindrome(String word)
 {
-  str = word
+  if (noSpaces(word).equalsIgnoreCase(noSpaces(reverse(word)))) return true;
+  return false;
 }
 public String reverse(String str)
 {
@@ -27,8 +29,12 @@ public String reverse(String str)
     return sNew;
 }
 public String noSpaces(String str){
-  String ret;
   for (int i = 0; i<str.length(); i++){
-    if (str.charAt(i) == ' ') str = str.substring(0, i) + str.substring(i+1);
+    Character c = str.charAt(i);
+    if (c == ' ' || c == '!' || c == ',' || c == '.' || c == '\''){
+        str = str.substring(0, i) + str.substring(i+1);
+        i--;
+      }
   }
+  return str;
 }
