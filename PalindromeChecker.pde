@@ -28,13 +28,10 @@ public String reverse(String str)
     }
     return sNew;
 }
-public String noSpaces(String str){
-  for (int i = 0; i<str.length(); i++){
-    Character c = str.charAt(i);
-    if (c == ' ' || c == '!' || c == ',' || c == '.' || c == '\''){
-        str = str.substring(0, i) + str.substring(i+1);
-        i--;
-      }
+public String noSpaces(String sWord){
+  String ret = "";
+  for (int i = 0; i<sWord.length(); i++){
+    if (Character.isLetter(sWord.charAt(i))) ret = ret + sWord.charAt(i);
   }
-  return str;
+  return ret;
 }
